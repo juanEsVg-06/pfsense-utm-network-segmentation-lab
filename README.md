@@ -157,6 +157,7 @@ The final architecture used three logical interfaces:
 | WAN       | NAT              | 192.168.222.137 | External connectivity    |
 | LAN       | VMnet1 Host-only | 192.168.1.1/24  | Trusted internal network |
 | DMZ       | VMnet2 Host-only | 172.16.1.1/24   | Public service segment   |
+
 During the initial phase, Windows Server 2022 was configured as:
 
 - IP address: `192.168.1.2/24`
