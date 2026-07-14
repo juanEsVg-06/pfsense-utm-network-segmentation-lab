@@ -303,25 +303,102 @@ Because the laboratory used a limited number of virtual machines, permanent role
 
 ---
 
-## Evidence
+## Visual Evidence
 
-|Evidence ID|Description|Original Report Location|
-|---|---|---|
-|E01|VMware virtual-machine creation and hardware allocation|Pages 3–5|
-|E02|pfSense installation, GPT partitioning, and UFS filesystem|Pages 6–10|
-|E03|pfSense console showing WAN and LAN interface assignments|Pages 10–11|
-|E04|WebGUI setup wizard, DNS configuration, and LAN addressing|Pages 12–16|
-|E05|Windows Server static addressing and VMnet1 connection|Pages 17–18|
-|E06|NAT Reflection and initial Port Forwarding configuration|Pages 18–21|
-|E07|Successful external access to Pentesting Phase Manager|Page 22|
-|E08|Third VMware adapter and DMZ addressing|Page 23|
-|E09|DMZ interface assignment and isolation rule|Page 24|
-|E10|Active Directory, shared resource, and GPO configuration|Pages 25–26|
-|E11|Updated Port Forwarding configuration for the DMZ server|Pages 26–28|
-|E12|Firewall logs showing default-deny events|Pages 27–29|
-|E13|Successful validation after the DMZ configuration update|Pages 28–29|
+### 1. Operational pfSense Interfaces
 
-> Evidence published in the public repository must be reviewed and sanitized before upload. Credentials, personal browser information, unrelated tabs, sensitive filenames, and unnecessary host information should be removed or blurred.
+The pfSense dashboard confirms that the WAN, LAN, and DMZ interfaces were enabled and operational.
+
+The final interface addressing was:
+
+* WAN: `192.168.222.137`
+* LAN: `192.168.1.1/24`
+* DMZ: `172.16.1.1/24`
+
+The traffic graphs also provide visibility into activity passing through the WAN and DMZ interfaces.
+
+![pfSense dashboard showing operational WAN, LAN, and DMZ interfaces](assets/01-pfsense-dashboard.png)
+
+---
+
+### 2. Port Forwarding Rule
+
+A destination NAT and Port Forwarding rule was configured on the WAN interface.
+
+The rule received TCP traffic on external port `81` and redirected it to the IIS web service hosted in the DMZ at `172.16.1.2:80`.
+
+NAT Reflection was enabled in Pure NAT mode for testing purposes, and an associated firewall rule was created to permit the matching traffic.
+
+![pfSense Port Forwarding rule from WAN TCP port 81 to the DMZ web server](assets/02-port-forwarding-rule.png)
+
+---
+
+### 3. External Service Validation
+
+The IIS-hosted Pentesting Phase Manager application was successfully accessed through the pfSense WAN address:
+
+```text
+http://192.168.222.137:81
+```
+
+This result confirmed the functional operation of:
+
+* The Port Forwarding rule.
+* The associated WAN firewall permission.
+* The route between the WAN and DMZ.
+* The IIS web service on TCP port `80`.
+* The DMZ server gateway configuration.
+
+The browser identified the connection as not secure because the service was published over HTTP rather than HTTPS. Transport encryption remains a future improvement.
+
+![Pentesting Phase Manager accessed through the pfSense WAN address](assets/03-external-access-validation.png)
+
+---
+
+### 4. DMZ Interface Configuration
+
+A dedicated DMZ interface was enabled in pfSense using static IPv4 addressing.
+
+The interface was assigned:
+
+```text
+Interface: DMZ
+IPv4 address: 172.16.1.1/24
+Upstream gateway: None
+```
+
+This interface operated as the default gateway for the public-facing server segment.
+
+![Dedicated pfSense DMZ interface configured with static IPv4 addressing](assets/04-dmz-interface.png)
+
+---
+
+### 5. Default-Deny Firewall Logging
+
+The pfSense firewall logs recorded traffic rejected by the default IPv4 deny rule.
+
+The displayed events include traffic originating from the DMZ server at `172.16.1.2` toward services on the pfSense DMZ interface, including DNS traffic addressed to `172.16.1.1:53`.
+
+This evidence demonstrates that traffic without an explicit matching permit rule was denied and recorded for administrative review.
+
+It should not, by itself, be interpreted as proof of a specific DMZ-to-LAN blocking test because the displayed destination is the pfSense DMZ interface.
+
+![pfSense firewall logs showing default-deny events](assets/05-default-deny-logs.png)
+
+---
+
+### 6. Group Policy Resource Deployment
+
+A Group Policy Object named `GPO_Despliegue_Recursos` was configured to map drive `Z:` to the shared network resource:
+
+```text
+\\192.168.1.2\Publico
+```
+
+This configuration demonstrated centralized resource deployment through Active Directory and Group Policy during the enterprise-services phase of the laboratory.
+
+![Group Policy Object used to deploy a mapped network drive](assets/06-gpo-drive-mapping.png)
+
 
 ---
 
