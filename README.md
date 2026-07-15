@@ -1,32 +1,69 @@
 # pfSense UTM and Network Segmentation Lab
 
 #### Implementation Status: Completed
-#### Documentation Status: In Progress
+#### Documentation Status: Published
+#### Last Updated: July 2026
 
 #### Difficulty: Intermediate
 #### Category: Infrastructure Security
+---
 
-### Technologies:
+### Technologies
 
-- pfSense
-- VMware
-- Windows Server
-- IIS
-- Active Directory
+- pfSense 2.7.0
+- VMware Workstation Pro
+- Windows Server 2022
+- Internet Information Services (IIS)
+- Active Directory Domain Services
+- DNS
+- Group Policy Objects (GPO)
+- Network Address Translation
+- Port Forwarding
+- Firewall Logging
+---
+
+## Project Highlights
+
+- Deployed pfSense with dedicated WAN, LAN, and DMZ interfaces.
+- Published an IIS web service through `WAN TCP/81 → DMZ TCP/80`.
+- Applied default-deny firewall behavior and reviewed blocked traffic.
+- Migrated the web service from the LAN to a dedicated DMZ segment.
+- Configured Active Directory, DNS, and Group Policy concepts.
+- Documented security findings, limitations, and remediation actions.
+---
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Environment](#environment)
+- [Network Topology](#network-topology)
+- [Security Principles Applied](#security-principles-applied)
+- [Implementation Process](#implementation-process)
+- [Validation and Testing](#validation-and-testing)
+- [Results](#results)
+- [Visual Evidence](#visual-evidence)
+- [Security Findings and Limitations](#security-findings-and-limitations)
+- [Lessons Learned](#lessons-learned)
+- [Future Improvements](#future-improvements)
+- [References](#references)
 ---
 
 ## Project Overview
 
 ### Objective
 
-Design and implement a virtualized edge-security environment using pfSense 2.7.0 as a Unified Threat Management (UTM) platform. The project focuses on secure traffic mediation between external and internal network segments, controlled exposure of services through NAT and Port Forwarding, and the application of network segmentation principles through the implementation of LAN and DMZ zones.
+Design and implement a virtualized edge-security environment using pfSense 2.7.0 as a perimeter firewall and UTM-capable platform.
 
-The environment was developed to evaluate perimeter security controls, service publication mechanisms, and administrative visibility within a simulated enterprise infrastructure.
+The project focuses on traffic mediation between external and internal network segments, controlled service exposure through destination NAT and Port Forwarding, and network segmentation through dedicated WAN, LAN, and DMZ zones.
+
+The environment was developed to evaluate perimeter security controls, firewall behavior, service-publication mechanisms, and administrative visibility within a simulated enterprise infrastructure.
 
 ### Context
 
-In today's defensive cybersecurity landscape, a Unified Threat Management (UTM) system acts as the core of perimeter security. The central problem addressed in this research is how a network administrator can centralize firewall, NAT, and intrusion detection functions on a single node. This experiment documents the implementation of pfSense 2.7.0 to mediate traffic between an external zone (WAN) and a controlled segment (LAN), ensuring the availability of critical services such as web servers.
+Modern organizations require centralized mechanisms to control traffic entering and leaving their internal networks. Edge-security platforms provide capabilities such as stateful packet filtering, routing, NAT, network segmentation, and event logging from a centralized control point.
 
+This laboratory documents the implementation of pfSense 2.7.0 as the security gateway between a simulated external network and protected internal segments. Windows Server 2022 provided the web and enterprise services required to validate controlled service exposure, DMZ segmentation, firewall enforcement, and policy-based resource administration.
+
+IDS/IPS capabilities were considered as part of the broader UTM model but were not implemented during this phase of the laboratory.
 ---
 ## Environment
 
@@ -50,7 +87,7 @@ In today's defensive cybersecurity landscape, a Unified Threat Management (UTM) 
 
 | System              | Primary Role                                               |
 | ------------------- | ---------------------------------------------------------- |
-| pfSense 2.7.0       | Firewall, router, NAT gateway. and network segmentation    |
+| pfSense 2.7.0       | Firewall, router, NAT gateway, and network segmentation    |
 | Windows Server 2022 | IIS web service, DNS, Active Directory, and GPO validation |
 
 ---
@@ -247,7 +284,7 @@ The pfSense firewall logs were reviewed to identify blocked traffic, validate de
 | T04 | DMZ segmentation behavior       | Move the published server to `172.16.1.2/24` before updating the existing Port Forwarding rule  | The previous publication rule no longer reaches the server       | External access stopped and firewall logs recorded blocked traffic                | Passed |
 | T05 | Default-deny validation         | Review `Status > System Logs > Firewall` after the DMZ migration                                | Unpermitted traffic is blocked and logged                        | Multiple entries associated with the default IPv4 deny rule were observed         | Passed |
 | T06 | Updated DMZ publication         | Update the Port Forwarding target to `172.16.1.2:80` and configure gateway/DNS as `172.16.1.1`  | External access to TCP/81 is restored through the DMZ            | The web application was displayed successfully after the configuration update     | Passed |
-| T07 | Centralized resource deployment | Configure a GPO to map drive `Z:` to the shared resource                                        | The configured network resource is deployed through Group Policy | The drive-mapping policy was created and associated with the shared path          | Passed |
+| T07 | Centralized resource deployment | Configure a GPO to map drive `Z:` to the shared resource | A drive-mapping policy is created and linked through Group Policy | The GPO was created and associated with the shared path; client-side application was not independently validated | Partially Validated |
 
 ### Testing Scope
 
