@@ -8,7 +8,7 @@
 #### Category: Infrastructure Security
 ---
 
-### Technologies
+## Technologies
 
 - pfSense 2.7.0
 - VMware Workstation Pro
@@ -36,6 +36,7 @@
 - [Project Overview](#project-overview)
 - [Environment](#environment)
 - [Network Topology](#network-topology)
+- [Architecture Diagram](#architecture-diagram)
 - [Security Principles Applied](#security-principles-applied)
 - [Implementation Process](#implementation-process)
 - [Validation and Testing](#validation-and-testing)
@@ -43,6 +44,7 @@
 - [Visual Evidence](#visual-evidence)
 - [Security Findings and Limitations](#security-findings-and-limitations)
 - [Lessons Learned](#lessons-learned)
+- [Key Takeaways](#key-takeaways)
 - [Future Improvements](#future-improvements)
 - [References](#references)
 ---
@@ -169,7 +171,7 @@ A third virtual network adapter was added later to support the dedicated DMZ seg
 
 After the first boot, pfSense detected the WAN and LAN interfaces.
 
-The WAN interface obtained the address `192.168.222.137` through DHCP from the VMware NAT network. The LAN interface was configured statically as `192.168.1.1/24`
+The WAN interface obtained the address `192.168.222.137` through DHCP from the VMware NAT network. The LAN interface was configured statically as `192.168.1.1/24`.
 
 The WebGUI setup wizard was used to configure:
 
@@ -281,7 +283,7 @@ The pfSense firewall logs were reviewed to identify blocked traffic, validate de
 | T01 | Interface detection             | Review the pfSense console and dashboard after installation                                     | WAN and LAN interfaces are detected and assigned correctly       | WAN received `192.168.222.137` through DHCP and LAN was assigned `192.168.1.1/24` | Passed |
 | T02 | Initial LAN connectivity        | Configure Windows Server with `192.168.1.2/24`, gateway `192.168.1.1`, and connect it to VMnet1 | The server communicates through pfSense as its default gateway   | Windows Server was successfully connected to the protected LAN segment            | Passed |
 | T03 | Initial service publication     | Access `http://192.168.222.137:81` from the external host                                       | pfSense forwards TCP/81 to `192.168.1.2:80`                      | The IIS-hosted Pentesting Phase Manager application was displayed successfully    | Passed |
-| T04 | DMZ segmentation behavior       | Move the published server to `172.16.1.2/24` before updating the existing Port Forwarding rule  | The previous publication rule no longer reaches the server       | External access stopped and firewall logs recorded blocked traffic                | Passed |
+| T04 | DMZ segmentation behavior | Move the published server to `172.16.1.2/24` before updating the existing Port Forwarding rule | The previous publication rule no longer reaches the server | External access stopped after the service migration; firewall logs were reviewed during subsequent troubleshooting | Passed |
 | T05 | Default-deny validation         | Review `Status > System Logs > Firewall` after the DMZ migration                                | Unpermitted traffic is blocked and logged                        | Multiple entries associated with the default IPv4 deny rule were observed         | Passed |
 | T06 | Updated DMZ publication         | Update the Port Forwarding target to `172.16.1.2:80` and configure gateway/DNS as `172.16.1.1`  | External access to TCP/81 is restored through the DMZ            | The web application was displayed successfully after the configuration update     | Passed |
 | T07 | Centralized resource deployment | Configure a GPO to map drive `Z:` to the shared resource | A drive-mapping policy is created and linked through Group Policy | The GPO was created and associated with the shared path; client-side application was not independently validated | Partially Validated |
@@ -547,8 +549,18 @@ The limited number of virtual machines restricted the ability to demonstrate per
 
 ## References
 
-- Netgate. _pfSense Documentation_.
-- Microsoft Learn. _Windows Server 2022, Active Directory Domain Services, DNS, IIS, and Group Policy Documentation_.
-- VMware. _VMware Workstation Pro Documentation_.
+### Official Technical Documentation
+
+- [Netgate — pfSense Documentation](https://docs.netgate.com/pfsense/en/latest/)
+- [Microsoft Learn — Windows Server Documentation](https://learn.microsoft.com/en-us/windows-server/)
+- [Microsoft Learn — Active Directory Domain Services Overview](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
+- [Microsoft Learn — DNS in Windows Server](https://learn.microsoft.com/en-us/windows-server/networking/dns/dns-overview)
+- [Microsoft Learn — IIS Documentation](https://learn.microsoft.com/en-us/iis/)
+- [Broadcom — Installing VMware Workstation Pro](https://knowledge.broadcom.com/external/article?articleNumber=387947)
+
+### Academic Background
+
+- Sol Llaven, D. (2016). *Sistemas operativos: panorama para la ingeniería en computación e informática*. Grupo Editorial Patria.
+- Tanenbaum, A. S. (2009). *Sistemas operativos modernos* (3rd ed.). Pearson Educación.
 - Sol Llaven, D. _Sistemas operativos: panorama para la ingeniería en computación e informática_.
 - Tanenbaum, A. S. _Sistemas operativos modernos_.
