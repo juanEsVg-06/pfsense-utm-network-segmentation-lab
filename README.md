@@ -66,6 +66,7 @@ Modern organizations require centralized mechanisms to control traffic entering 
 This laboratory documents the implementation of pfSense 2.7.0 as the security gateway between a simulated external network and protected internal segments. Windows Server 2022 provided the web and enterprise services required to validate controlled service exposure, DMZ segmentation, firewall enforcement, and policy-based resource administration.
 
 IDS/IPS capabilities were considered as part of the broader UTM model but were not implemented during this phase of the laboratory.
+
 ---
 ## Environment
 
