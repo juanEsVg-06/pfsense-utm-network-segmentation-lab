@@ -115,6 +115,12 @@ The first phase used a two-zone WAN/LAN architecture. The environment was later 
 
 pfSense managed packet filtering, routing, NAT translation, Port Forwarding, and firewall logging. Windows Server 2022 provided the internal and published enterprise services required for validation.
 
+### Architecture Diagram
+
+The following diagram represents the final virtualized architecture implemented during the laboratory, including the VMware NAT network, the pfSense security gateway, the trusted LAN, and the isolated DMZ.
+
+![pfSense WAN LAN and DMZ network topology](diagrams/pfsense-network-topology.png)
+
 ### Network Segments
 | Zone | Purpose                                                                             |
 | ---- | ----------------------------------------------------------------------------------- |
@@ -522,7 +528,6 @@ The limited number of virtual machines restricted the ability to demonstrate per
 - Separate the Domain Controller, DNS service, and IIS web server into dedicated virtual machines.
 - Maintain the Domain Controller in the trusted LAN and the IIS server exclusively in the DMZ.
 - Add a dedicated administrative workstation or management network.
-- Develop and include a formal network-topology diagram.
 
 ### Security
 
