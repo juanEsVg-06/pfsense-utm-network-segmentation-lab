@@ -1,0 +1,119 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="uN88l4tITcI3JVRpJ_4Q">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-11" edge="1" parent="1" source="WrPKbZjoGs0nDHUsZ4E6-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="WrPKbZjoGs0nDHUsZ4E6-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-2" parent="1" style="shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.internet;network2IconXOffset=0.0012;network2IconYOffset=0.0035;network2IconW=0.9677;network2IconH=0.7722;" value="" vertex="1">
+          <mxGeometry height="70" width="87.73" x="316.14" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-13" edge="1" parent="1" source="WrPKbZjoGs0nDHUsZ4E6-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="WrPKbZjoGs0nDHUsZ4E6-7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fillStyle=auto;" value="" vertex="1">
+          <mxGeometry height="150" width="210" x="256" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="VMWARE NAT / VMnet8&lt;div&gt;192.168.222.0/24&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="160" x="279.86" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="pfSense VM&lt;div&gt;&lt;div&gt;Firewall / Router / NAT&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="190" x="264.86" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-21" edge="1" parent="1" source="WrPKbZjoGs0nDHUsZ4E6-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="GRD-AkV_HvNq7a2NJgFw-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="480" />
+              <mxPoint x="360" y="562" />
+              <mxPoint x="470" y="562" />
+              <mxPoint x="470" y="592" />
+              <mxPoint x="525" y="592" />
+            </Array>
+            <mxPoint x="380" y="510" as="sourcePoint" />
+            <mxPoint x="613.8600000000001" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-22" connectable="0" parent="WrPKbZjoGs0nDHUsZ4E6-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" value="DMZ: 172.16.1.1/24" vertex="1">
+          <mxGeometry relative="1" x="0.2626" y="-1" as="geometry">
+            <mxPoint x="13" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-11" edge="1" parent="1" source="WrPKbZjoGs0nDHUsZ4E6-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="GRD-AkV_HvNq7a2NJgFw-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="562" />
+              <mxPoint x="250" y="562" />
+              <mxPoint x="250" y="592" />
+              <mxPoint x="154.92" y="592" />
+            </Array>
+            <mxPoint x="336.05999999999995" y="562" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-12" connectable="0" parent="GRD-AkV_HvNq7a2NJgFw-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Lucida Console;" value="LAN: 192.168.1.1/24" vertex="1">
+          <mxGeometry relative="1" x="-0.0226" y="3" as="geometry">
+            <mxPoint x="-17" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Lucida Console;fontSize=15;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;SIMULATED EXTERNAL NETWORK&lt;/font&gt;" vertex="1">
+          <mxGeometry height="21" width="212.21" x="253.76" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="WAN: 192.168.222.137/24&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;LAN: 192.168.1.1/24&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;DMZ: 172.16.1.1/24&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="190" x="264.86" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-16" parent="1" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.virtual_machine;" value="" vertex="1">
+          <mxGeometry height="40" width="50" x="181" y="385" as="geometry" />
+        </mxCell>
+        <mxCell id="WrPKbZjoGs0nDHUsZ4E6-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="&lt;div&gt;VMware NAT&lt;/div&gt;&lt;div&gt;(Internet Access)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="150" x="419" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FAD7AC,#40214C);strokeColor=light-dark(#0e8088, #86440e);fillStyle=auto;" value="" vertex="1">
+          <mxGeometry height="150" width="210" x="420" y="611" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FAD7AC,#5D316F);strokeColor=#b46504;fillStyle=auto;" value="" vertex="1">
+          <mxGeometry height="80" width="190" x="430" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;fontSize=11;" value="Windows Server / IIS&lt;div&gt;&lt;br&gt;&lt;div&gt;172.16.1.2/24 · TCP/80&lt;/div&gt;&lt;/div&gt;&lt;div&gt;Gateway: 172.16.1.1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="440" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="DMZ&lt;div&gt;172.16.1.0/24&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="465" y="618" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFF88,#09350A);strokeColor=#36393d;fillStyle=auto;" value="" vertex="1">
+          <mxGeometry height="150" width="210" x="49.86" y="612" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillStyle=auto;fillColor=light-dark(#FFFFFF,#004200);" value="" vertex="1">
+          <mxGeometry height="64" width="190" x="59.86" y="688" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;fontSize=10;" value="&lt;div&gt;AD DS, DNS and GPO&lt;br/&gt;evaluated during the lab&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Gateway: 192.168.1.1&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="69.86" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="GRD-AkV_HvNq7a2NJgFw-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="&lt;div&gt;LAN&lt;/div&gt;&lt;div&gt;Trusted / Administration&lt;/div&gt;&lt;div&gt;192.168.1.0/24&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="54.860000000000014" y="618" as="geometry" />
+        </mxCell>
+        <mxCell id="9n9bQx1DQ4d6UlbI5lej-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#FFFF88,#904700);" value="" vertex="1">
+          <mxGeometry height="40" width="250" x="500" y="482" as="geometry" />
+        </mxCell>
+        <mxCell id="9n9bQx1DQ4d6UlbI5lej-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="&lt;div&gt;Port Forwarding&lt;/div&gt;&lt;div&gt;WAN TCP/81 → DMZ 172.16.1.2:80&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="240" x="505" y="482" as="geometry" />
+        </mxCell>
+        <mxCell id="9n9bQx1DQ4d6UlbI5lej-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontFamily=Lucida Console;" value="&lt;div&gt;Default Deny&lt;/div&gt;&lt;div&gt;DMZ → LAN&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="110" x="291.73" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="9n9bQx1DQ4d6UlbI5lej-6" edge="1" parent="1" source="GRD-AkV_HvNq7a2NJgFw-1" style="endArrow=cross;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=8 8;endFill=0;strokeColor=light-dark(#000000,#FF0B0B);strokeWidth=2;" target="GRD-AkV_HvNq7a2NJgFw-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="370" y="530" as="sourcePoint" />
+            <mxPoint x="420" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9n9bQx1DQ4d6UlbI5lej-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="40" width="280.14" x="273" y="40.5" as="geometry" />
+        </mxCell>
+        <mxCell id="9n9bQx1DQ4d6UlbI5lej-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Lucida Console;fontSize=15;" value="&lt;div&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Final Lab Topology&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;pfSense WAN, LAN and DMZ Segmentation&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="21" width="270" x="280" y="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
