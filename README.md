@@ -568,5 +568,3 @@ The limited number of virtual machines restricted the ability to demonstrate per
 
 - Sol Llaven, D. (2016). *Sistemas operativos: panorama para la ingeniería en computación e informática*. Grupo Editorial Patria.
 - Tanenbaum, A. S. (2009). *Sistemas operativos modernos* (3rd ed.). Pearson Educación.
-- Sol Llaven, D. _Sistemas operativos: panorama para la ingeniería en computación e informática_.
-- Tanenbaum, A. S. _Sistemas operativos modernos_.
